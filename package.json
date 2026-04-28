@@ -1,0 +1,17 @@
+{
+  "name": "lan-whatsapp-monitor",
+  "version": "1.0.0",
+  "description": "LAN Club WhatsApp group promo message monitor",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "@hapi/boom": "^10.0.1",
+    "axios": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
