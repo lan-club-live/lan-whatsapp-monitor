@@ -54,13 +54,17 @@ async function startBot() {
       process.exit(1);
     }
     await new Promise(resolve => setTimeout(resolve, 3000));
-    const code = await sock.requestPairingCode(PHONE_NUMBER);
-    console.log('');
-    console.log('========================================');
-    console.log(`  PAIRING CODE: ${code}`);
-    console.log('========================================');
-    console.log('WhatsApp → Settings → Linked Devices → Link a Device → Link with phone number instead');
-    console.log('');
+try {
+  const code = await sock.requestPairingCode(PHONE_NUMBER);
+  console.log('');
+  console.log('========================================');
+  console.log(`  PAIRING CODE: ${code}`);
+  console.log('========================================');
+  console.log('WhatsApp → Settings → Linked Devices → Link a Device → Link with phone number instead');
+  console.log('');
+} catch (err) {
+  console.log('Pairing code request failed, will retry on reconnect:', err.message);
+}
   }
 
   sock.ev.on('connection.update', (update) => {
